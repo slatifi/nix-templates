@@ -1,0 +1,78 @@
+{
+  "nodes": {
+    "flake-utils": {
+      "inputs": {
+        "systems": "systems"
+      },
+      "locked": {
+        "lastModified": 1731533236,
+        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1747483578,
+        "narHash": "sha256-ymMji1hHRiRPA2m/yyXLQGJS+ouiPL7F1jlWORTiENU=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "91587a9a0ceed2dd3cdeb48084dccad06279baa8",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "staging-next",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1744401926,
+        "narHash": "sha256-LoFJtUHxKSKAw7PJM+tzD1cKRLBkrR77DN9iNLdttD4=",
+        "owner": "slatifi",
+        "repo": "nvim-config",
+        "rev": "86d2e771132af3c2f3ca88be12890b854267c603",
+        "type": "github"
+      },
+      "original": {
+        "owner": "slatifi",
+        "repo": "nvim-config",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": "nixpkgs",
+        "nvim": "nvim"
+      }
+    },
+    "systems": {
+      "locked": {
+        "lastModified": 1681028828,
+        "narHash": "sha256-Vy1rq5AaRuLzOxct8nz4T6wlgyUR7zLU309k9mBC768=",
+        "owner": "nix-systems",
+        "repo": "default",
+        "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-systems",
+        "repo": "default",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}

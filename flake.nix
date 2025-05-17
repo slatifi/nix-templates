@@ -7,6 +7,10 @@
                 path = ./latex;
                 description = "Latex Document Builder";
             };
+            nvim-jupyter = {
+                path = ./nvim-jupyter;
+                description = "Neovim Jupyter Notebooks";
+            };
         };
     };
 }
