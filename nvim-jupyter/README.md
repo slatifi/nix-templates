@@ -12,3 +12,8 @@ To run the configuration, execute the following command:
 nix develop
 ```
 This will open a bash shell with access to a Neovim environment that has the necessary dependencies installed.
+
+----
+### 2 important notes
+1. Once you initally install the nvim config, it will give an error regarding the lazy lock - this is normal. It is read only in the Nix store.
+2. If the Molten plugin doesn't initially load, run `:UpdateRemotePlugins` in the nvim editor and reboot it. 
