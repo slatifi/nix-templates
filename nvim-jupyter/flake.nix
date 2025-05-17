@@ -34,7 +34,10 @@
 
       shellHook = ''
         export PATH=$PATH:${pkgs.neovim}/bin
-        alias nvim="nvim -u ${nvim}/init.lua -c 'let g:python3_host_prog=\"${pkgs.python312}/bin/python\"'"
+        ln -s ${nvim} ~/.config/nvim-jupyters
+        export NVIM_APPNAME=nvim-jupyters
+        alias nvim="nvim -c 'let g:python3_host_prog=\"${pkgs.python312}/bin/python\"'"
+        trap 'rm ~/.config/nvim-jupyters' EXIT
       '';
     };
   });
