@@ -19,6 +19,7 @@
   {
     devShells.default = pkgs.mkShell {
       buildInputs = with pkgs; [
+        jq
         neovim
         imagemagick
         python312
@@ -37,6 +38,7 @@
         ln -s ${nvim} ~/.config/nvim-jupyter
         export NVIM_APPNAME=nvim-jupyter
         alias nvim="nvim -c 'let g:python3_host_prog=\"${pkgs.python312}/bin/python\"'"
+        jupyter --paths --json | jq .runtime[0] | xargs mkdir -p
         trap 'rm ~/.config/nvim-jupyter' EXIT
       '';
     };
