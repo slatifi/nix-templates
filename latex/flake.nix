@@ -12,6 +12,13 @@
       minted = true;
       fonts = null;
 
+      fontsConf = pkgs.makeFontsConf {
+        fontDirectories = [ 
+          pkgs.fira-code 
+          pkgs.noto-fonts 
+        ];
+      };
+
       latexPackages = with pkgs; [
         (texlive.combine {
           inherit (texlive)
@@ -53,6 +60,24 @@
           runHook postInstall
         '';
 
+      };
+
+      devShells.default = pkgs.mkShell {
+        buildInputs = latexPackages ++ [pkgs.fontconfig pkgs.fira-code];
+        
+        shellHook = ''
+          export FONTCONFIG="${fontsConf}"
+          echo "════════════════════════════════════════"
+          echo "  📄 LaTeX Development Environment"
+          echo "════════════════════════════════════════"
+          echo ""
+          echo "  texb      - Build your document"
+          echo "  texclean  - Remove auxiliary files"
+          echo ""
+          
+          alias texclean='rm -f *.aux *.bbl *.bcf *.blg *.idx *.ind *.ist *.lof *.lot *.out *.toc *.acn *.acr *.alg *.glg *.glo *.gls *.glsdefs *.fls *.log *.nav *.fdb_latexmk *.run.xml *.snm *.spl *.synctex.gz *.vrb *.pyg *.snippets && rm -rf cache'
+          alias texb="latexmk -interaction=nonstopmode -pdf -lualatex -pretex='\\pdfvariable suppressoptionalinfo 512\\relax' -usepretex -shell-escape && texclean"
+        '';
       };
     }
   );
